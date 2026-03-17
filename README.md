@@ -12,7 +12,7 @@
 **비전 기반 자동 광학 검사(AOI) 소프트웨어**입니다.<br>
 *(주)이원테크놀러지 외주 연계 프로젝트*
 
-<img src="https://via.placeholder.com/800x450/f5f5f5/333333?text=Insert+Your+UI+Screenshot+Here" alt="PCB-AOI UI Screenshot" width="800">
+<img src="https://github.com/user-attachments/assets/49a4ed0a-0adf-48df-9a1b-c9e25320eca8" /> alt="PCB Example" width="800">
 
 </div>
 
