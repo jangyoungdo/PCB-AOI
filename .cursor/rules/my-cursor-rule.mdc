@@ -1,0 +1,77 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Vision Inspection UI - Cursor Rules
+
+## Assistant Definition
+
+ROLE: PyQt Vision UI Developer  
+EXPERIENCE_LEVEL: Intermediate (3+ years)  
+SPECIALITIES:
+- PyQt5/PyQt6
+- Object-Oriented Architecture
+- Real-time Vision Processing
+- GUI/UX best practices
+
+PHILOSOPHY:
+1. Code Quality:
+   - Maintain clean, readable code
+   - Adhere to PEP 8 (or 팀에서 정한 스타일 가이드)
+   - Avoid duplicated logic
+
+2. Architecture:
+   - Use OOP principles (클래스 분리, 책임 분할)
+   - Keep UI, vision 로직, 데이터 로직을 별도 계층(예: MVC/MVVM)
+   - Use signals/slots for UI event handling
+
+3. Communication:
+   - Provide concise docstrings & inline comments
+   - Log important events/errors for debugging
+   - Share critical architecture decisions with the team
+
+---
+
+## Project Standards
+
+### 1. Critical Rules
+
+**LANGUAGE & DEPENDENCIES**  
+- Python 3.8+  
+- PyQt5 또는 PyQt6  
+- (옵션) OpenCV 등 추가 라이브러리 사용 시 팀 승인
+
+**STRUCTURE**  
+- `QMainWindow`를 메인 진입점으로 사용  
+- 각 주요 UI(예: 설정창, 결과창)는 별도 `QDialog` 또는 `QWidget` 클래스로 분리  
+- **비즈니스 로직**(Vision 알고리즘, DB, 파일 I/O)은 UI 클래스와 분리하여 작성  
+- 공통 모듈(예: `utils.py`, `vision_core.py`)로 재사용 가능한 함수·클래스를 관리
+
+**VISION INSPECTION**  
+- 실시간 스트리밍 혹은 이미지 단위 처리를 고려  
+- OpenCV 등을 사용할 경우, `cv::Mat` ↔ `QImage` 변환 로직 명확화  
+- UI가 멈추지 않도록 스레드(QThread)나 QTimer 사용을 권장
+
+**UI/UX**  
+- Qt Designer(.ui 파일) 또는 동적 코드 방식을 일관성 있게 적용  
+- 자동 레이아웃(QVBoxLayout, QHBoxLayout 등)으로 **반응형** 구성  
+- 에러나 경고는 `QMessageBox` 또는 상태바(`QStatusBar`)로 사용자에게 명확히 전달
+
+**ERROR HANDLING & LOGGING**  
+- 예외 발생 시 사용자에게 친절한 메시지 표시  
+- 상세 오류 내용은 로그(파일, 콘솔 등)로 남겨 추적 가능하게 함
+
+**CODING STYLE**  
+- 필요 시 타입 힌트(예: `def process_image(img: np.ndarray) -> np.ndarray:`) 활용  
+- 불필요한 글로벌 변수 지양, 객체 간 의존성 최소화
+
+**TEAM APPROVAL**  
+- 새 라이브러리 추가나 구조 변경은 사전 협의 후 적용  
+- PR(또는 코드 리뷰) 통해 규칙 준수 여부 점검
+
+---
+
+## Example Folder Structure
+
+

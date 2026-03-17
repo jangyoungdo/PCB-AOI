@@ -1,0 +1,61 @@
+import cv2
+
+# 모델별 기본 설정값
+MODEL_DEFAULT_SETTINGS = {
+    'RGB': {
+        'tolerance': 30  # RGB 허용 오차 기본값
+    },
+    'MATCHING': {
+        "proprocess" : "edge detection",
+        "algorithm" : "flann"
+        # 유사도 검사 관련 기본 설정들
+    },
+    'DEEP_LEARNING': {
+        # 딥러닝 검사 관련 기본 설정들
+    }
+}
+
+ALGORITHM_PARAMETER = {
+    "sift" : {
+        "n_features" : 0,
+        "threshold" : 0.9,
+        "matching_rate_threshold" : 0.3,
+    },
+    "orb" : {
+        "n_features" : 500,
+        "scale_factor" : 1.2,
+        "matching_rate_threshold" : 0.3,
+    },
+    "flann" : {
+        "trees" : 5,
+        "checks" : 50,
+        "matching_rate_threshold" : 0.3,
+    },
+    "template" : {
+        "method" : cv2.TM_CCOEFF_NORMED,
+        "threshold" : 0.8,
+        "matching_rate_threshold" : 0.3,
+    },
+    "hsv" : {
+        "h_offset" : 30,
+        "s_offset" : 40,
+        "v_offset" : 40,
+        "matching_rate_threshold" : 0.1,
+    }
+}
+
+# yolo 프로그램을 설명을 하자면
+# 객체들을 학습시켜 그 다음에
+# 욜로는 전체 이미지에서 객체가 있냐 ??? 어떤 객체 인지 판단 (classification.)
+# 객체가 있냐를 전체 이미지에서 판단하는게 비효율적
+# 객체의 위치 우리가 줄껀데 왜 이거 쓰냐가
+# 객체의 위치 정보는 roi라고 생각하고 classfication
+# 1번 째 장점은 : 시간적인 효율
+# 2번 째 장점은 : 정확도
+# yolo 학습 단점 ;
+# 전체 이미지에서 해당 객체를 라벨링을 해줘야됨
+# 해당 객체를 라벨링 하는 것이 비효율적
+# roi를 기반으로 classification을 할꺼면
+# 양품데이터를 한 50개 그냥 흘려서 우리가 학습 모드를 만들면
+# roi 데이터 자동으로 쌓이잖아
+# 우리가 ROi 
